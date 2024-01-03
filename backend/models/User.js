@@ -20,5 +20,5 @@ const UserSchema=new Schema({
 });
 
 const User=mongoose.model('user',UserSchema);
-User.createIndexes(); // to remove duplicate users
+//User.createIndexes(); // to remove duplicate users
 module.exports= User;
