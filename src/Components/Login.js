@@ -18,7 +18,7 @@ const Login = () => {
         if(json.success)
         {
             localStorage.setItem('token',json.authtoken);
-            navigate('/');
+            navigate('/home');
 
         }
         else{
