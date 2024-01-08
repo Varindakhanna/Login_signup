@@ -25,7 +25,7 @@ const Signup = () => {
       {
         //Save the auth token and redirect
         localStorage.setItem('token',json.authtoken);
-        navigate('/');
+        navigate('/home');
         
       }
       else{
@@ -43,13 +43,13 @@ const Signup = () => {
       <h2 className="my-2">Create an Account to Login</h2>
 
       <form onSubmit={handleSubmit}>
-      <div class="mb-3">        
-          <label for="name" class="form-label">
+      <div className="mb-3">        
+          <label htmlFor="name" className="form-label">
             Name
           </label>
           <input
             type="text"
-            class="form-control"
+            className="form-control"
             placeholder="Please enter your name"
             name="name"
             id="name"
@@ -58,13 +58,13 @@ const Signup = () => {
           />
           
         </div>
-        <div class="mb-3">
-          <label for="exampleInputEmail1" class="form-label">
+        <div className="mb-3">
+          <label htmlFor="exampleInputEmail1" className="form-label">
             Email address
           </label>
           <input
             type="email"
-            class="form-control"
+            className="form-control"
             placeholder="Please enter your email address"
             id="email"
             name="email"
@@ -73,34 +73,34 @@ const Signup = () => {
           />
           
         </div>
-        <div class="mb-3">
-          <label for="password" class="form-label">
+        <div className="mb-3">
+          <label htmlFor="password" className="form-label">
             Password
           </label>
           <input
             type="password"
             name="password"
             minLength={5} required
-            class="form-control"
+            className="form-control"
             placeholder="Enter your password"
             onChange={onChange}
             id="password"
           />
         </div>
-        <div class="mb-3">
-          <label for="cpassword" class="form-label">
+        <div className="mb-3">
+          <label htmlFor="cpassword" className="form-label">
            Confirm Password
           </label>
           <input
             type="password"
-            class="form-control"
+            className="form-control"
             onChange={onChange}
             placeholder="Confirm your password"
             id="cpassword"
             name="cpassword"
           />
         </div>       
-        <button type="submit" class="btn btn-primary">
+        <button type="submit" className="btn btn-primary">
           Submit
         </button>
       </form>

@@ -1,6 +1,16 @@
+// Navbar.js
 import React from "react";
-import {Link } from "react-router-dom";
-const Navbar = () => {
+import { Link, useNavigate } from "react-router-dom";
+
+const Navbar = ({ isLoggedIn, currentRoute }) => {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    // Add your logout logic here
+    localStorage.removeItem('token');
+    navigate('/login'); // Redirect to the login page after logout
+  };
+
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -31,12 +41,26 @@ const Navbar = () => {
                   About
                 </Link>
               </li>
-             
             </ul>
-            <form className="d-flex" role="search">
-              
-            <Link className="btn btn-primary mx-2" to="/login" role="button">Login</Link>
-            <Link className="btn btn-primary mx-2" to="/signup"  role="button">Signup</Link>
+            <form className="d-flex">
+              {isLoggedIn && currentRoute === '/home' && (
+                // If user is logged in and on the home page, show the logout button
+                <button className="btn btn-primary mx-2" onClick={handleLogout}>
+                  Logout
+                </button>
+              )}
+              {!isLoggedIn && currentRoute !== '/login' && (
+                // If user is not logged in and not on the login page, show the login button
+                <Link className="btn btn-primary mx-2" to="/login" role="button">
+                  Login
+                </Link>
+              )}
+              {!isLoggedIn && currentRoute !== '/signup' && (
+                // If user is not logged in and not on the signup page, show the signup button
+                <Link className="btn btn-primary mx-2" to="/signup" role="button">
+                  Signup
+                </Link>
+              )}
             </form>
           </div>
         </div>
